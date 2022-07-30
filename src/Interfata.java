@@ -161,7 +161,7 @@ public class Interfata extends JFrame implements ActionListener {
 
     	if(c.cauta(s))
     	{
-    		JOptionPane.showMessageDialog(null, "Utilizator cua ceasta adresa de email exista deja ","INFO", JOptionPane.INFORMATION_MESSAGE);
+    		JOptionPane.showMessageDialog(null, "Utilizator cu aceasta adresa de email exista deja ","INFO", JOptionPane.INFORMATION_MESSAGE);
     		
     	}
     	else
