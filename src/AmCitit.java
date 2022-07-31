@@ -82,6 +82,10 @@ public class AmCitit extends JFrame implements ActionListener{
        panelPagini.setBackground(Color.BLUE);
        panelAdauga.setBackground(Color.BLUE);
        
+       JButton b3=new JButton("Iesire");
+       b3.setFont(new Font("Courier", Font.BOLD,20));
+       panelTitlu.add(b3);
+       
        this.add(panelTitlu);
        this.add(panelTitluC);
        this.add(panelAutor);
@@ -91,6 +95,7 @@ public class AmCitit extends JFrame implements ActionListener{
        this.setVisible(true);
 		 
        b1.addActionListener(e->adaugaPagini(s));
+       b3.addActionListener(e->back());
     }
     
 	@Override
@@ -123,6 +128,11 @@ public class AmCitit extends JFrame implements ActionListener{
 		{
 			JOptionPane.showMessageDialog(null, "Cartea nu a putut fi accesata","INFO", JOptionPane.INFORMATION_MESSAGE);
 		}
+	}
+	
+	public void back()
+	{
+		this.setVisible(false);
 	}
 
 }

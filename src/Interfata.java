@@ -146,7 +146,7 @@ public class Interfata extends JFrame implements ActionListener {
     	if(c.cauta(s))
     	{
     		//JOptionPane.showMessageDialog(null, "Utilizator gasit ","INFO", JOptionPane.INFORMATION_MESSAGE);
-    		
+    		this.setVisible(false);
     		 new PaginaPornire(s);
     	}
     	else

@@ -224,6 +224,85 @@ public class Principal {
 	    	return false;
 	    }
 	}
+	
+	
+	public boolean cautraColectie(String col,String em)
+	{
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+	        Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/librarie","root","");
+
+	        System.out.println("Conexiune reusita!");
+	        
+	        Statement st = con.createStatement();
+	        String sql = ("SELECT COUNT(*) AS recordCount FROM colectii where Email='"+em+"' and Nume='"+col+"'");
+	        ResultSet rs = st.executeQuery(sql);
+	        rs.next();
+	        int count = rs.getInt("recordCount");
+	        con.close();
+	        if(count==1)
+	        	return true;
+	        else 
+	        	return false;
+
+	    }
+	    catch(Exception e) {
+	    	System.out.println("Conexiune esuata!");
+	    	System.out.println(e.getMessage());
+	    	return false;
+	    }
+	}
+	
+	public boolean adauagaColectieNoua(String email,String col)
+	{
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+	        Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/librarie","root","");
+
+	        System.out.println("Conexiune reusita!");
+	        
+	        Statement st = con.createStatement();
+	        st.executeUpdate("INSERT INTO colectii VALUES ('"+email+"','"+col+"')");
+	       
+	        con.close();
+	        
+	        return true;
+	    }
+	    catch(Exception e) {
+	    	System.out.println("Conexiune esuata!");
+	    	System.out.println(e.getMessage());
+	    	return false;
+	    }
+	}
+	
+	public String extrageColectii(String email)
+	{
+		String s="";
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+	        Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/librarie","root","");
+
+	        System.out.println("Conexiune reusita---extrageColectii!");
+	        
+	        Statement st = con.createStatement();
+	        String sql = ("SELECT * FROM colectii where Email='"+email+"'");
+	        ResultSet rs = st.executeQuery(sql);
+	        
+	        while(rs.next()) { 
+	         String t = rs.getString("Nume"); 
+	         s=s+t+" - ";
+	        }
+	        con.close();
+	        
+	        return s;	
+	    }
+	    catch(Exception e) {
+	    	System.out.println("Conexiune esuata!");
+	    	System.out.println(e.getMessage());
+	    	return "Eroare";
+	    }
+
+	}
 			
 
 }

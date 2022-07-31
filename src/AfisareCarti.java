@@ -6,6 +6,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -65,15 +66,22 @@ public class AfisareCarti extends JFrame implements ActionListener{
 			sp.setPreferredSize(new Dimension(450,200));
 			
 			panelTabel.add(sp);
-		
+			JButton b3=new JButton("Iesire");
+		       b3.setFont(new Font("Courier", Font.BOLD,20));
+		       panelTitlu.add(b3);
 		this.add(panelTitlu);
 		this.add(panelTabel);
 		
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setVisible(true);
+        
+        b3.addActionListener(e->back());
 	}
 	
-	
+	public void back()
+	{
+		this.setVisible(false);
+	}
 	
 	
 	@Override

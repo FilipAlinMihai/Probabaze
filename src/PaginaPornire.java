@@ -49,6 +49,11 @@ public class PaginaPornire extends JFrame implements ActionListener  {
         JButton b4=new JButton("Colectii");
         b4.setFont(new Font("Courier", Font.BOLD,20));
         panelArataCarti.add(b4);
+        
+        JButton b5=new JButton("Iesire");
+        b5.setFont(new Font("Courier", Font.BOLD,20));
+        panelTitlu.add(b5);
+	    
 	    
         panelAdaugaCarte.setBackground(Color.BLUE);
         panelArataCarti.setBackground(Color.BLUE);
@@ -63,6 +68,7 @@ public class PaginaPornire extends JFrame implements ActionListener  {
         b2.addActionListener(e->afisareCarti());
         b3.addActionListener(e->aduagaPaginiCitite());
         b4.addActionListener(e->colectii());
+        b5.addActionListener(e->back());
 	}
 
 	@Override
@@ -90,5 +96,13 @@ public class PaginaPornire extends JFrame implements ActionListener  {
 	{
 		new PaginaColectii(email);
 	}
+	
+
+	public void back()
+	{
+		this.setVisible(false);
+		new Interfata();
+	}
+	
 
 }
